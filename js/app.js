@@ -1,16 +1,16 @@
-const hamburguesa = document.querySelector(".hamburguesa");
 const navegacion = document.querySelector(".navegacion");
 const enlaces = document.querySelectorAll(".navegacion a");
+const menu = document.getElementById("menu");
 
 document.addEventListener("DOMContentLoaded", () => {
   mostrarMenu();
   cerrarMenu();
 });
 
-function mostrarMenu() {
-  hamburguesa.addEventListener("click", () => {
-    navegacion.classList.toggle("ocultar");
-  });
+function myFunction(x) {
+  navegacion.classList.toggle("ocultar");
+  menu.classList.toggle("change-menu");
+  x.classList.toggle("change");
 }
 
 function cerrarMenu() {

@@ -178,16 +178,44 @@ a {
     animation: unset;
   }
 }
-.hamburguesa span {
-  width: 5rem;
-  height: 1rem;
-  border: 3px solid white;
-  background-color: var(--oscuro);
-  display: block;
+
+/*Menu hamburguesa*/
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.4s ease-out;
+}
+
+.linea-1,
+.linea-2,
+.linea-3 {
+  width: 50px;
+  height: 5px;
+  background-color: #333;
+  margin: 3px 0px;
+  transition: 0.4s ease-out;
+}
+
+.change .linea-1 {
+  transform: rotate(-45deg) translate(3px, -2px);
+  position: absolute;
+}
+
+.change .linea-2 {
+  opacity: 0;
+}
+
+.change .linea-3 {
+  transform: rotate(45deg) translate(-6px, -7px);
 }
 
 @media (min-width: 768px) {
-  .hamburguesa {
+  .linea-1,
+  .linea-2,
+  .linea-3 {
     display: none;
   }
 }
