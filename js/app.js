@@ -7,10 +7,11 @@ document.addEventListener("DOMContentLoaded", () => {
   cerrarMenu();
 });
 
-function myFunction(x) {
-  navegacion.classList.toggle("ocultar");
-  menu.classList.toggle("change-menu");
-  x.classList.toggle("change");
+function mostrarMenu() {
+  menu.addEventListener("click", () => {
+    navegacion.classList.toggle("ocultar");
+    menu.classList.toggle("change");
+  });
 }
 
 function cerrarMenu() {
