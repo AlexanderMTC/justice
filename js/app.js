@@ -1,5 +1,5 @@
-const navegacion = document.querySelector(".navegacion");
-const enlaces = document.querySelectorAll(".navegacion a");
+const navegacion = document.querySelector(".nav__menu");
+const enlaces = document.querySelectorAll(".nav__link");
 const menu = document.getElementById("menu");
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -22,6 +22,7 @@ function cerrarMenu() {
       cambioSeccion(seccion);
       if (e.target.tagName === "A") {
         navegacion.classList.add("ocultar");
+        menu.classList.remove("change");
       }
     });
   });

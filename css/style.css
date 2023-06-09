@@ -7,20 +7,21 @@
   --parrafos: "Montserrat", sans-serif;
 }
 
-html {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+}
+
+html {
   font-size: 62.5%;
   scroll-behavior: smooth;
 }
+
 body {
   font-size: 1.6rem;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
 /*Estilos globales*/
 h1,
 h2,
@@ -37,7 +38,7 @@ a {
   display: none;
 }
 
-.contenedor {
+.container {
   margin: 0 auto;
   max-width: 120rem;
   width: 95%;
@@ -90,7 +91,7 @@ a {
 }
 
 /*encabezado*/
-.encabezado {
+.header {
   /* background-image: url("../assets/justice.jpg"); */
   background-image: url("../assets/justice4.jpg");
   background-repeat: no-repeat;
@@ -103,11 +104,11 @@ a {
 }
 
 @media (min-width: 768px) {
-  .encabezado {
+  .header {
     background-attachment: fixed;
   }
 }
-.encabezado::before {
+.header::before {
   content: "";
   position: absolute;
   top: 0;
@@ -117,14 +118,14 @@ a {
   background-color: rgba(0, 0, 0, 0.5);
   z-index: -1;
 }
-.logo h2 {
+.nav__logo h2 {
   font-size: 3rem;
 }
 
-.logo h2 span {
+.nav__logo h2 span {
   color: gray;
 }
-.contenido-navegacion {
+.nav__content {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -136,7 +137,7 @@ a {
   z-index: 3;
 }
 
-.navegacion {
+.nav__menu {
   background-color: var(--blanco);
   position: absolute;
   left: 0;
@@ -151,7 +152,7 @@ a {
   }
 }
 
-.navegacion a {
+.nav__link {
   display: block;
   font-size: 2rem;
   padding: 1.1rem;
@@ -159,18 +160,18 @@ a {
   text-decoration: none;
   transition: background-color 0.3s ease-in-out;
 }
-.navegacion a:hover {
+.nav__link:hover {
   background-color: var(--azulClaro);
   color: var(--blanco);
 }
 
 @media (min-width: 768px) {
-  .navegacion a {
+  .nav__link {
     display: inline;
   }
 }
 @media (min-width: 768px) {
-  .navegacion {
+  .nav__menu {
     position: relative;
     top: unset;
     width: auto;
@@ -189,9 +190,9 @@ a {
   transition: 0.4s ease-out;
 }
 
-.linea-1,
-.linea-2,
-.linea-3 {
+.menu__linea1,
+.menu__linea2,
+.menu__linea3 {
   width: 50px;
   height: 5px;
   background-color: #333;
@@ -199,23 +200,23 @@ a {
   transition: 0.4s ease-out;
 }
 
-.change .linea-1 {
+.change .menu__linea1 {
   transform: rotate(-45deg) translate(3px, -2px);
   position: absolute;
 }
 
-.change .linea-2 {
+.change .menu__linea2 {
   opacity: 0;
 }
 
-.change .linea-3 {
+.change .menu__linea3 {
   transform: rotate(45deg) translate(-6px, -7px);
 }
 
 @media (min-width: 768px) {
-  .linea-1,
-  .linea-2,
-  .linea-3 {
+  .menu__linea1,
+  .menu__linea2,
+  .menu__linea3 {
     display: none;
   }
 }
@@ -223,56 +224,58 @@ a {
 /*contenido del encabezado*/
 
 @media (min-width: 768px) {
-  .contenido-encabezado {
+  .header__content {
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 85%;
   }
-  .contenido-encabezado,
-  .formulario-encabezado {
+  .header__content,
+  .header__form {
     flex: 0 0 calc(50% - 1rem);
   }
 }
-.texto-encabezado h1 {
+.header__text h1 {
   font-size: 3rem;
+  margin: 10rem 0;
   text-align: center;
   color: var(--blanco);
   padding-top: 8rem;
 }
 @media (min-width: 768px) {
-  .texto-encabezado h1 {
-    font-size: 7rem;
+  .header__text h1 {
+    font-size: 6rem;
     text-align: left;
     padding-top: 0;
   }
 }
 
-.formulario-encabezado {
-  background-color: var(--blanco);
+.header__form {
+  background-color: #ffffff31;
+  backdrop-filter: blur(3px);
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 5rem;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
 }
 
-.formulario-encabezado h2 {
+.header__form h2 {
   font-size: 3rem;
   text-align: center;
   margin-top: 0;
 }
 @media (min-width: 768px) {
-  .formulario-encabezado h2 {
+  .header__form h2 {
     font-size: 3rem;
   }
 }
-.input-encabezado {
+.header__input {
   margin-bottom: 1rem;
   width: 100%;
 }
 
-.input-encabezado input {
+.header__input input {
   width: 100%;
   padding: 0 1.6rem;
   height: 4.8rem;
@@ -282,48 +285,48 @@ a {
   outline: none;
 }
 
-/*ventajas*/
+/*advantages*/
 @media (min-width: 768px) {
-  .contenido-ventajas {
+  .advantages__content {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
   }
 }
-.ventajas {
+.advantages {
   padding: 5rem;
   background-color: var(--azulOscuro);
 }
 
-.ventaja {
+.advantage {
   color: var(--blanco);
   text-align: center;
 }
 
-.ventaja i {
+.advantage i {
   font-size: 4rem;
 }
 
-.ventaja h3 {
+.advantage h3 {
   font-size: 2.5rem;
 }
 
-.ventaja p {
+.advantage p {
   font-size: 2rem;
 }
 
 /*seccion sobre nosotros*/
-.nosotros h2 {
+.us h2 {
   text-align: center;
   font-size: 2rem;
   color: gray;
 }
 @media (min-width: 768px) {
-  .nosotros h2 {
+  .us h2 {
     font-size: 5rem;
   }
 }
-.contenido-nosotros {
+.us__content {
   max-height: 90vh;
   background-image: url("../assets/justice.jpg");
   background-size: cover;
@@ -334,64 +337,64 @@ a {
 }
 
 @media (min-width: 768px) {
-  .contenido-nosotros {
+  .us__content {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-.texto-nosotros {
+.us__text {
   padding: 2rem;
   grid-row: 2/3;
   background-color: var(--blanco);
 }
 
 @media (min-width: 768px) {
-  .texto-nosotros {
+  .us__text {
     padding: 5rem;
   }
 }
 
-.texto-nosotros h3 {
+.us__text h3 {
   font-size: 2rem;
   color: gray;
   text-align: center;
 }
 
-.texto-nosotros p {
+.us__text p {
   font-size: 1.2rem;
   text-align: center;
 }
 @media (min-width: 768px) {
-  .texto-nosotros p {
+  .us__text p {
     text-align: left;
   }
 }
 
-/*Seccion servicios*/
-.servicios {
+/*Seccion services*/
+.services {
   padding-top: 5rem;
 }
 
-.servicios h2 {
+.services h2 {
   font-size: 5rem;
   text-align: center;
   color: gray;
 }
 
 @media (min-width: 768px) {
-  .contenido-servicios {
+  .services__content {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 4rem;
   }
 }
 
-.servicio {
+.service {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.servicio i {
+.service i {
   background-color: var(--azulClaro);
   width: 10rem;
   height: 10rem;
@@ -405,27 +408,27 @@ a {
   transition: all 0.3s ease-in-out;
 }
 
-.servicio h3 {
+.service h3 {
   font-size: 2.2rem;
   color: var(--azulOscuro);
 }
-.servicio p {
+.service p {
   font-size: 1.8rem;
   text-align: center;
 }
 
 @media (min-width: 768px) {
-  .servicio p {
+  .service p {
     text-align: left;
   }
 }
 
 @media (min-width: 768px) {
-  .servicio:hover {
+  .service:hover {
     cursor: pointer;
   }
 
-  .servicio:hover .fas {
+  .service:hover .fas {
     background-color: var(--blanco);
     color: var(--azulClaro);
   }
@@ -442,13 +445,13 @@ a {
 }
 
 @media (min-width: 768px) {
-  .contenido-contacto {
+  .contact__content {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-.informacion-contacto {
+.contact__inf {
   background-image: url("../assets/images.jpg");
   background-size: cover;
   background-position: center;
@@ -462,11 +465,11 @@ a {
   justify-content: center;
 }
 @media (min-width: 768px) {
-  .informacion-contacto {
+  .contact__inf {
     height: 100vh;
   }
 }
-.informacion-contacto::before {
+.contact__inf::before {
   content: "";
   position: absolute;
   top: 0;
@@ -476,18 +479,18 @@ a {
   background-color: rgba(0, 0, 0, 0.5);
   z-index: -1;
 }
-.informacion-contacto h3 {
+.contact__inf h3 {
   font-size: 4rem;
   text-align: center;
 }
-.informacion-contacto p {
+.contact__inf p {
   font-size: 2rem;
 }
-.informacion-contacto h3,
-.informacion-contacto p {
+.contact__inf h3,
+.contact__inf p {
   color: var(--blanco);
 }
-.formulario-contacto {
+.contact__form {
   padding: 5rem;
   display: flex;
   flex-direction: column;
@@ -495,40 +498,40 @@ a {
   background-color: darkslategray;
 }
 
-.input-contacto label {
+.contact__input label {
   color: var(--blanco);
   font-family: var(--parrafos);
   display: block;
   margin: 1rem 0;
   font-weight: bold;
 }
-.input-contacto input {
+.contact__input input {
   padding: 1.2rem 1rem;
   font-family: var(--parrafos);
 }
 
-.input-contacto input,
-.input-contacto textarea {
+.contact__input input,
+.contact__input textarea {
   width: 100%;
   outline: none;
 }
 
-.input-contacto textarea {
+.contact__input textarea {
   resize: none;
 }
 
-.input-contacto input[type="submit"] {
+.contact__input input[type="submit"] {
   width: auto;
   padding: 1rem 3rem;
   transition: background-color 0.3s ease-in-out;
 }
 
-.input-contacto input[type="submit"]:hover {
+.contact__input input[type="submit"]:hover {
   background-color: var(--blanco);
   color: var(--azulClaro);
 }
 
-.footer .logo h2,
+.footer .nav__logo h2,
 .footer p {
   text-align: center;
 }
